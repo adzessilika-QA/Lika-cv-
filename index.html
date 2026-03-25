@@ -1,517 +1,443 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ru">
-  <head>
-    <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
-    />
-    <title>
-      Анжелика Адзесси | Чат-менеджер | Техподдержка | Тестирование ПО
-    </title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Анжелика Адзесси | Чат-менеджер | Техподдержка | Тестирование ПО</title>
     <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-
-      body {
-        font-family:
-          "Segoe UI",
-          "Inter",
-          system-ui,
-          -apple-system,
-          "Roboto",
-          sans-serif;
-        background: #fefaf5;
-        color: #3e3a35;
-        line-height: 1.55;
-        scroll-behavior: smooth;
-      }
-
-      @keyframes softAppear {
-        0% {
-          opacity: 0;
-          transform: translateY(18px);
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-        100% {
-          opacity: 1;
-          transform: translateY(0);
+
+        body {
+            font-family: 'Segoe UI', 'Inter', system-ui, -apple-system, 'Roboto', sans-serif;
+            background: #fefaf5;
+            color: #3e3a35;
+            line-height: 1.55;
+            scroll-behavior: smooth;
         }
-      }
 
-      .container {
-        max-width: 1000px;
-        margin: 0 auto;
-        padding: 2rem 1.6rem;
-      }
+        @keyframes softAppear {
+            0% {
+                opacity: 0;
+                transform: translateY(18px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
 
-      .header {
-        background: #fff9f3;
-        border-radius: 48px;
-        padding: 2.4rem 2rem;
-        text-align: center;
-        margin-bottom: 2rem;
-        box-shadow: 0 12px 26px -12px rgba(0, 0, 0, 0.05);
-        border: 1px solid #fff0e4;
-      }
-
-      .profile-photo {
-        width: 128px;
-        height: 128px;
-        border-radius: 50%;
-        object-fit: cover;
-        border: 3px solid #fff0e4;
-        box-shadow:
-          0 0 0 3px #ffe4d0,
-          0 12px 24px -10px rgba(0, 0, 0, 0.1);
-        margin-bottom: 1.2rem;
-        transition: all 0.3s ease;
-      }
-
-      .profile-photo:hover {
-        transform: scale(1.03);
-        box-shadow:
-          0 0 0 4px #fad4bb,
-          0 18px 28px -12px rgba(0, 0, 0, 0.15);
-      }
-
-      .header h1 {
-        font-size: 2.2rem;
-        font-weight: 560;
-        letter-spacing: -0.3px;
-        color: #cb8b62;
-        margin-bottom: 0.3rem;
-      }
-
-      .header .title {
-        font-size: 1rem;
-        font-weight: 450;
-        background: #fff2ea;
-        display: inline-block;
-        padding: 0.3rem 1.2rem;
-        border-radius: 60px;
-        color: #ab7658;
-        margin-bottom: 1rem;
-      }
-
-      .contact-info {
-        margin-top: 1rem;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 0.8rem;
-      }
-
-      .contact-info a {
-        color: #b27a5a;
-        background: #fff7f0;
-        text-decoration: none;
-        padding: 0.5rem 1.2rem;
-        border-radius: 60px;
-        font-weight: 470;
-        transition: all 0.2s ease;
-        font-size: 0.9rem;
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        border: 1px solid #ffe4d0;
-      }
-
-      .contact-info a:hover {
-        background: #fff0e5;
-        transform: translateY(-2px);
-        border-color: #fad4bb;
-      }
-
-      .pdf-button {
-        margin-top: 1.2rem;
-      }
-      .btn-pdf {
-        background: #e7d9ce;
-        color: #946b4e;
-        border: none;
-        padding: 0.7rem 1.6rem;
-        border-radius: 60px;
-        font-weight: 500;
-        font-size: 0.9rem;
-        cursor: pointer;
-        text-decoration: none;
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        transition: all 0.25s;
-      }
-      .btn-pdf:hover {
-        background: #f3e3d6;
-        transform: translateY(-3px);
-        box-shadow: 0 12px 20px -12px rgba(0, 0, 0, 0.15);
-      }
-
-      .card {
-        background: #ffffff;
-        border-radius: 38px;
-        padding: 1.8rem;
-        margin-bottom: 1.6rem;
-        box-shadow: 0 5px 18px rgba(0, 0, 0, 0.02);
-        border: 1px solid #f7ede4;
-        transition: all 0.3s ease;
-        animation: softAppear 0.55s ease forwards;
-        opacity: 0;
-      }
-
-      .card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 22px 32px -16px rgba(0, 0, 0, 0.1);
-        border-color: #f2dfd1;
-      }
-
-      .card:nth-child(2) {
-        animation-delay: 0.05s;
-      }
-      .card:nth-child(3) {
-        animation-delay: 0.1s;
-      }
-      .card:nth-child(4) {
-        animation-delay: 0.15s;
-      }
-      .card:nth-child(5) {
-        animation-delay: 0.2s;
-      }
-      .card:nth-child(6) {
-        animation-delay: 0.25s;
-      }
-      .card:nth-child(7) {
-        animation-delay: 0.3s;
-      }
-
-      .card h2 {
-        font-size: 1.65rem;
-        font-weight: 530;
-        color: #c1825d;
-        margin-bottom: 1rem;
-        border-left: 4px solid #efcfb8;
-        padding-left: 1rem;
-      }
-
-      .card h3 {
-        font-size: 1.1rem;
-        font-weight: 530;
-        color: #c79370;
-        margin: 1rem 0 0.5rem 0;
-      }
-
-      .job {
-        margin-bottom: 1.5rem;
-        border-bottom: 1px solid #f5e5da;
-        padding-bottom: 1rem;
-      }
-
-      .job:last-child {
-        border-bottom: none;
-      }
-
-      .job-header {
-        display: flex;
-        justify-content: space-between;
-        flex-wrap: wrap;
-        margin-bottom: 0.2rem;
-      }
-
-      .job-title {
-        font-weight: 620;
-        font-size: 1.02rem;
-        color: #b5724e;
-      }
-
-      .job-date {
-        color: #c29477;
-        font-size: 0.75rem;
-        background: #fdf4ec;
-        padding: 0.2rem 0.7rem;
-        border-radius: 40px;
-      }
-
-      .job-company {
-        color: #d8a07e;
-        font-weight: 470;
-        margin-bottom: 0.5rem;
-        font-size: 0.9rem;
-      }
-
-      .job ul {
-        padding-left: 1.2rem;
-      }
-
-      .job li {
-        margin-bottom: 0.35rem;
-        color: #5c534b;
-      }
-
-      .skills-grid {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.6rem;
-        margin-top: 0.6rem;
-      }
-
-      .skill-tag {
-        background: #fef4ed;
-        padding: 0.35rem 1rem;
-        border-radius: 50px;
-        font-size: 0.82rem;
-        color: #b97e5c;
-        font-weight: 470;
-        border: 1px solid #fbe6d8;
-        transition: all 0.2s;
-      }
-      .skill-tag:hover {
-        background: #fbe9de;
-        transform: translateY(-1px);
-      }
-
-      .remote-badge {
-        background: #fef6ef;
-        border-radius: 26px;
-        padding: 1rem 1.4rem;
-        margin-bottom: 1.2rem;
-        display: flex;
-        flex-wrap: wrap;
-        gap: 1rem;
-        align-items: center;
-        justify-content: space-between;
-        border: 1px solid #f7e2d2;
-      }
-
-      .remote-item {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        font-size: 0.88rem;
-        color: #a06f52;
-      }
-
-      .superpower {
-        background: #fffaf5;
-        border-radius: 32px;
-        padding: 1.2rem 1.6rem;
-        margin-bottom: 1.6rem;
-        border: 1px solid #f7e2d2;
-        text-align: center;
-        animation: softAppear 0.55s ease forwards;
-        opacity: 0;
-        animation-delay: 0.02s;
-      }
-      .superpower p {
-        font-size: 1rem;
-        color: #b87a58;
-        font-weight: 470;
-      }
-      .superpower strong {
-        color: #d6966c;
-        font-weight: 600;
-      }
-
-      .footer {
-        text-align: center;
-        padding: 1.5rem;
-        color: #dbb594;
-        font-size: 0.8rem;
-        border-top: 1px solid #f7e5da;
-        margin-top: 1rem;
-      }
-
-      @media (max-width: 680px) {
         .container {
-          padding: 1rem;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem 1.6rem;
         }
-        .header h1 {
-          font-size: 1.8rem;
+
+        .header {
+            background: #fff9f3;
+            border-radius: 48px;
+            padding: 2.4rem 2rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            box-shadow: 0 12px 26px -12px rgba(0, 0, 0, 0.05);
+            border: 1px solid #fff0e4;
         }
+
         .profile-photo {
-          width: 100px;
-          height: 100px;
+            width: 128px;
+            height: 128px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #ffe8dd;
+            box-shadow: 0 0 0 3px #ffdecb, 0 12px 24px -10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 1.2rem;
+            transition: all 0.3s ease;
         }
+
+        .profile-photo:hover {
+            transform: scale(1.03);
+            box-shadow: 0 0 0 4px #f5cbaa, 0 18px 28px -12px rgba(0, 0, 0, 0.15);
+        }
+
+        .header h1 {
+            font-size: 2.2rem;
+            font-weight: 560;
+            letter-spacing: -0.3px;
+            color: #cb8b62;
+            margin-bottom: 0.3rem;
+        }
+
+        .header .title {
+            font-size: 1rem;
+            font-weight: 450;
+            background: #fff2ea;
+            display: inline-block;
+            padding: 0.3rem 1.2rem;
+            border-radius: 60px;
+            color: #d48a6a;
+            margin-bottom: 1rem;
+        }
+
+        .contact-info {
+            margin-top: 1rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.8rem;
+        }
+
+        .contact-info a {
+            color: #d48a6a;
+            background: #fff7f0;
+            text-decoration: none;
+            padding: 0.5rem 1.2rem;
+            border-radius: 60px;
+            font-weight: 470;
+            transition: all 0.2s ease;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            border: 1px solid #ffdecb;
+        }
+
+        .contact-info a:hover {
+            background: #fff0e5;
+            transform: translateY(-2px);
+            border-color: #f5cbaa;
+            color: #b25e3a;
+        }
+
+        .pdf-button {
+            margin-top: 1.2rem;
+        }
+        .btn-pdf {
+            background: #f0cdb0;
+            color: #b97a56;
+            border: none;
+            padding: 0.7rem 1.6rem;
+            border-radius: 60px;
+            font-weight: 500;
+            font-size: 0.9rem;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.25s;
+        }
+        .btn-pdf:hover {
+            background: #ffdecb;
+            transform: translateY(-3px);
+            box-shadow: 0 12px 20px -12px rgba(0, 0, 0, 0.15);
+            color: #a5623e;
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 38px;
+            padding: 1.8rem;
+            margin-bottom: 1.6rem;
+            box-shadow: 0 5px 18px rgba(0, 0, 0, 0.02);
+            border: 1px solid #f7ede4;
+            transition: all 0.3s ease;
+            animation: softAppear 0.55s ease forwards;
+            opacity: 0;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 22px 32px -16px rgba(0, 0, 0, 0.1);
+            border-color: #f2dfd1;
+        }
+
+        .card:nth-child(2) { animation-delay: 0.05s; }
+        .card:nth-child(3) { animation-delay: 0.1s; }
+        .card:nth-child(4) { animation-delay: 0.15s; }
+        .card:nth-child(5) { animation-delay: 0.2s; }
+        .card:nth-child(6) { animation-delay: 0.25s; }
+        .card:nth-child(7) { animation-delay: 0.3s; }
+
+        .card h2 {
+            font-size: 1.65rem;
+            font-weight: 530;
+            color: #d48a6a;
+            margin-bottom: 1rem;
+            border-left: 4px solid #f5d1b5;
+            padding-left: 1rem;
+        }
+
+        .card h3 {
+            font-size: 1.1rem;
+            font-weight: 530;
+            color: #e8b38a;
+            margin: 1rem 0 0.5rem 0;
+        }
+
+        .job {
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid #f5e5da;
+            padding-bottom: 1rem;
+        }
+
+        .job:last-child {
+            border-bottom: none;
+        }
+
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-bottom: 0.2rem;
+        }
+
+        .job-title {
+            font-weight: 620;
+            font-size: 1.02rem;
+            color: #cb8b62;
+        }
+
+        .job-date {
+            color: #e8b38a;
+            font-size: 0.75rem;
+            background: #fdf4ec;
+            padding: 0.2rem 0.7rem;
+            border-radius: 40px;
+        }
+
+        .job-company {
+            color: #e8b38a;
+            font-weight: 470;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .job ul {
+            padding-left: 1.2rem;
+        }
+
+        .job li {
+            margin-bottom: 0.35rem;
+            color: #5c534b;
+        }
+
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            margin-top: 0.6rem;
+        }
+
+        .skill-tag {
+            background: #fef4ed;
+            padding: 0.35rem 1rem;
+            border-radius: 50px;
+            font-size: 0.82rem;
+            color: #e8b38a;
+            font-weight: 470;
+            border: 1px solid #fbe6d8;
+            transition: all 0.2s;
+        }
+        .skill-tag:hover {
+            background: #fbe9de;
+            transform: translateY(-1px);
+        }
+
         .remote-badge {
-          flex-direction: column;
-          align-items: flex-start;
+            background: #fef6ef;
+            border-radius: 26px;
+            padding: 1rem 1.4rem;
+            margin-bottom: 1.2rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            align-items: center;
+            justify-content: space-between;
+            border: 1px solid #f7e2d2;
         }
-      }
+
+        .remote-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.88rem;
+            color: #e8b38a;
+        }
+
+        .superpower {
+            background: #fff5ed;
+            border-radius: 32px;
+            padding: 1.2rem 1.6rem;
+            margin-bottom: 1.6rem;
+            border: 1px solid #f7e2d2;
+            text-align: center;
+            animation: softAppear 0.55s ease forwards;
+            opacity: 0;
+            animation-delay: 0.02s;
+        }
+        .superpower p {
+            font-size: 1rem;
+            color: #e8b38a;
+            font-weight: 470;
+        }
+        .superpower strong {
+            color: #d48a6a;
+            font-weight: 600;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 1.5rem;
+            color: #f0cdb0;
+            font-size: 0.8rem;
+            border-top: 1px solid #f7e5da;
+            margin-top: 1rem;
+        }
+
+        @media (max-width: 680px) {
+            .container {
+                padding: 1rem;
+            }
+            .header h1 {
+                font-size: 1.8rem;
+            }
+            .profile-photo {
+                width: 100px;
+                height: 100px;
+            }
+            .remote-badge {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
     </style>
-  </head>
-  <body>
-    <div class="container">
-      <div class="header">
-        <img
-          src="Foto.png"
-          alt="Анжелика Адзесси"
-          class="profile-photo"
-          onerror="
-            this.onerror = null;
-            this.src = 'https://via.placeholder.com/128?text=Фото';
-          "
-        />
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <img src="Foto.png" alt="Анжелика Адзесси" class="profile-photo" onerror="this.onerror=null; this.src='https://via.placeholder.com/128?text=Фото';">
         <h1>Анжелика Адзесси</h1>
-        <div class="title">
-          Чат-менеджер | Техническая поддержка | Тестирование ПО
-        </div>
+        <div class="title">Чат-менеджер | Техническая поддержка | Тестирование ПО</div>
         <div class="contact-info">
-          <a href="mailto:adzessi.angelika@gmail.com"
-            >📧 adzessi.angelika@gmail.com</a
-          >
-          <a href="https://t.me/Lika_QAm" target="_blank">💬 @Lika_QAm</a>
+            <a href="mailto:adzessi.angelika@gmail.com">📧 adzessi.angelika@gmail.com</a>
+            <a href="https://t.me/Lika_QAm" target="_blank">💬 @Lika_QAm</a>
         </div>
         <div class="pdf-button">
-          <a href="resume_angelika.pdf" class="btn-pdf" download
-            >📄 Скачать резюме (PDF)</a
-          >
+            <a href="resume_angelika.pdf" class="btn-pdf" download>📄 Скачать резюме (PDF)</a>
         </div>
-      </div>
+    </div>
 
-      <div class="remote-badge">
+    <div class="remote-badge">
         <span class="remote-item">⌨️ 250–300 зн/мин | точность 98%</span>
         <span class="remote-item">🎧 Гарнитура с шумоподавлением (USB)</span>
         <span class="remote-item">🌐 Стабильный интернет + резерв</span>
         <span class="remote-item">⏰ Часовой пояс: GMT+0 / МСК –3</span>
         <span class="remote-item">💻 Ультрабук + внешний монитор</span>
-      </div>
+    </div>
 
-      <div class="superpower">
-        <p>
-          ✨ <strong>Моя суперсила</strong> ✨<br />
-          Пишу быстро, чисто, дружелюбно. Веду 3–5 чатов без потери качества.<br />
-          В любой ситуации остаюсь спокойной и нахожу решение.
-        </p>
-      </div>
+    <div class="superpower">
+        <p>✨ <strong>Моя суперсила</strong> ✨<br>
+        Пишу быстро, чисто, дружелюбно. Веду 3–5 чатов без потери качества.<br>
+        В любой ситуации остаюсь спокойной и нахожу решение.</p>
+    </div>
 
-      <div class="card">
+    <div class="card">
         <h2>💬 О себе</h2>
-        <p>
-          Основной канал работы — чаты и мессенджеры. Пишу быстро, грамотно, с
-          душой. Умею вести несколько диалогов одновременно, сохраняя внимание к
-          каждому клиенту.
-        </p>
-        <p>
-          🧠 Быстро учусь новым продуктам, скриптам, CRM. Работа с возражениями,
-          конфликтами, онбординг — моя сильная сторона.
-        </p>
-        <p>
-          🏆 Стабильно вхожу в топ по показателям благодаря эмпатии и
-          нацеленности на результат.
-        </p>
-      </div>
+        <p>Основной канал работы — чаты и мессенджеры. Пишу быстро, грамотно, с душой. Умею вести несколько диалогов одновременно, сохраняя внимание к каждому клиенту.</p>
+        <p>🧠 Быстро учусь новым продуктам, скриптам, CRM. Работа с возражениями, конфликтами, онбординг — моя сильная сторона.</p>
+        <p>🏆 Стабильно вхожу в топ по показателям благодаря эмпатии и нацеленности на результат.</p>
+    </div>
 
-      <!-- НОВЫЙ БЛОК: База знаний тестирования ПО -->
-      <div class="card">
+    <div class="card">
         <h2>🧪 База знаний тестирования ПО</h2>
-        <p>
-          Понимаю, как работают системы изнутри — это помогает быстро находить
-          причины проблем и объяснять клиентам решение понятным языком.
-        </p>
+        <p>Понимаю, как работают системы изнутри — это помогает быстро находить причины проблем и объяснять клиентам решение понятным языком.</p>
         <div class="skills-grid">
-          <span class="skill-tag">Тест-дизайн</span>
-          <span class="skill-tag">Классы эквивалентности</span>
-          <span class="skill-tag">Граничные значения</span>
-          <span class="skill-tag">Тест-кейсы / чек-листы</span>
-          <span class="skill-tag">Баг-репорты (severity/priority)</span>
-          <span class="skill-tag">DevTools</span>
-          <span class="skill-tag">API (Postman, GraphQL)</span>
-          <span class="skill-tag">Основы SQL</span>
-          <span class="skill-tag">Stepik (курс в процессе)</span>
+            <span class="skill-tag">Тест-дизайн</span>
+            <span class="skill-tag">Классы эквивалентности</span>
+            <span class="skill-tag">Граничные значения</span>
+            <span class="skill-tag">Тест-кейсы / чек-листы</span>
+            <span class="skill-tag">Баг-репорты</span>
+            <span class="skill-tag">DevTools</span>
+            <span class="skill-tag">API (Postman, GraphQL)</span>
+            <span class="skill-tag">Основы SQL</span>
         </div>
-        <p style="margin-top: 1rem; color: #a06f52; font-size: 0.9rem">
-          🎯 Эти знания помогают мне в техподдержке: я быстрее понимаю, в чём
-          может быть проблема, и точнее отвечаю клиенту.
-        </p>
-      </div>
+        <p style="margin-top: 1rem; color: #e8b38a; font-size: 0.9rem;">🎯 Эти знания помогают в техподдержке: быстрее понимаю проблему и точнее отвечаю клиенту.</p>
+    </div>
 
-      <div class="card">
+    <div class="card">
         <h2>📋 Опыт работы</h2>
         <div class="job">
-          <div class="job-header">
-            <span class="job-title">Менеджер по работе с клиентами</span>
-            <span class="job-date">май 2025 — ноябрь 2025</span>
-          </div>
-          <div class="job-company">Академия KATA</div>
-          <ul>
-            <li>Консультирование в чатах и по телефону</li>
-            <li>
-              Регистрация на платформах, работа в Диадоке, отчётность по оплатам
-            </li>
-            <li>Вошла в топ-менеджеров на испытательном сроке</li>
-            <li>
-              Одновременное ведение нескольких диалогов, быстрая переписка
-            </li>
-          </ul>
+            <div class="job-header">
+                <span class="job-title">Менеджер по работе с клиентами</span>
+                <span class="job-date">май 2025 — ноябрь 2025</span>
+            </div>
+            <div class="job-company">Академия KATA</div>
+            <ul>
+                <li>Консультирование в чатах и по телефону</li>
+                <li>Регистрация на платформах, работа в Диадоке, отчётность по оплатам</li>
+                <li>Вошла в топ-менеджеров на испытательном сроке</li>
+                <li>Одновременное ведение нескольких диалогов, быстрая переписка</li>
+            </ul>
         </div>
         <div class="job">
-          <div class="job-header">
-            <span class="job-title">Менеджер 1-й линии</span>
-            <span class="job-date">2024 — 2025</span>
-          </div>
-          <div class="job-company">Университет Urban</div>
-          <ul>
-            <li>Консультирование в чатах и по телефону, фильтрация лидов</li>
-            <li>Показатель доходимости 70–95% при среднем 65%</li>
-            <li>Обучение новичков: работа с возражениями, скрипты чатов</li>
-          </ul>
+            <div class="job-header">
+                <span class="job-title">Менеджер 1-й линии</span>
+                <span class="job-date">2024 — 2025</span>
+            </div>
+            <div class="job-company">Университет Urban</div>
+            <ul>
+                <li>Консультирование в чатах и по телефону, фильтрация лидов</li>
+                <li>Показатель доходимости 70–95% при среднем 65%</li>
+                <li>Обучение новичков: работа с возражениями, скрипты чатов</li>
+            </ul>
         </div>
         <div class="job">
-          <div class="job-header">
-            <span class="job-title">Менеджер 1-я и 2-я линия поддержки</span>
-            <span class="job-date">2023 — 2024</span>
-          </div>
-          <div class="job-company">Академия UKIDS</div>
-          <ul>
-            <li>
-              Онбординг клиентов: регистрация, подключение к урокам, решение
-              технических вопросов
-            </li>
-            <li>
-              Внедрение скриптов активного слушания → повышение качества
-              коммуникации
-            </li>
-            <li>
-              Выход на 100% плана в испытательный срок, топ-менеджер 3 месяца
-            </li>
-            <li>Отчётность в Google Таблицах, ведение базы клиентов</li>
-          </ul>
+            <div class="job-header">
+                <span class="job-title">Менеджер 1-я и 2-я линия поддержки</span>
+                <span class="job-date">2023 — 2024</span>
+            </div>
+            <div class="job-company">Академия UKIDS</div>
+            <ul>
+                <li>Онбординг клиентов: регистрация, подключение к урокам, решение технических вопросов</li>
+                <li>Внедрение скриптов активного слушания → повышение качества коммуникации</li>
+                <li>Выход на 100% плана в испытательный срок, топ-менеджер 3 месяца</li>
+                <li>Отчётность в Google Таблицах, ведение базы клиентов</li>
+            </ul>
         </div>
-      </div>
+    </div>
 
-      <div class="card">
+    <div class="card">
         <h2>Ключевые навыки</h2>
         <h3>💬 Работа в чатах</h3>
         <div class="skills-grid">
-          <span class="skill-tag">Скорость печати 250–300 зн/мин</span>
-          <span class="skill-tag">Точность 98%</span>
-          <span class="skill-tag">Ведение 3–5 чатов одновременно</span>
-          <span class="skill-tag">Грамотная переписка</span>
+            <span class="skill-tag">Скорость печати 250–300 зн/мин</span>
+            <span class="skill-tag">Точность 98%</span>
+            <span class="skill-tag">Ведение 3–5 чатов одновременно</span>
+            <span class="skill-tag">Грамотная переписка</span>
         </div>
         <h3>🛠️ Техподдержка</h3>
         <div class="skills-grid">
-          <span class="skill-tag">1-я и 2-я линия</span>
-          <span class="skill-tag">Онбординг</span>
-          <span class="skill-tag">Решение тех. вопросов</span>
-          <span class="skill-tag">Диагностика</span>
+            <span class="skill-tag">1-я и 2-я линия</span>
+            <span class="skill-tag">Онбординг</span>
+            <span class="skill-tag">Решение тех. вопросов</span>
+            <span class="skill-tag">Диагностика</span>
         </div>
         <h3>⚙️ Инструменты</h3>
         <div class="skills-grid">
-          <span class="skill-tag">Битрикс24 (3+ года)</span>
-          <span class="skill-tag">Google Таблицы</span>
-          <span class="skill-tag">Telegram, WhatsApp, Skype</span>
-          <span class="skill-tag">Диадок</span>
-          <span class="skill-tag">Postman, GraphQL</span>
+            <span class="skill-tag">Битрикс24 (3+ года)</span>
+            <span class="skill-tag">Google Таблицы</span>
+            <span class="skill-tag">Telegram, WhatsApp, Skype</span>
+            <span class="skill-tag">Диадок</span>
+            <span class="skill-tag">Postman, GraphQL</span>
         </div>
-      </div>
-
-      <div class="footer">
-        <p>
-          🌸 Анжелика Адзесси — чат-менеджер | техподдержка | тестирование ПО |
-          быстрая, грамотная, многозадачная
-        </p>
-      </div>
     </div>
-  </body>
+
+    <div class="footer">
+        <p>🌸 Анжелика Адзесси — чат-менеджер | техподдержка | тестирование ПО | быстрая, грамотная, многозадачная</p>
+    </div>
+</div>
+</body>
 </html>
