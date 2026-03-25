@@ -154,13 +154,6 @@
             border-color: #f2dfd1;
         }
 
-        .card:nth-child(2) { animation-delay: 0.05s; }
-        .card:nth-child(3) { animation-delay: 0.1s; }
-        .card:nth-child(4) { animation-delay: 0.15s; }
-        .card:nth-child(5) { animation-delay: 0.2s; }
-        .card:nth-child(6) { animation-delay: 0.25s; }
-        .card:nth-child(7) { animation-delay: 0.3s; }
-
         .card h2 {
             font-size: 1.65rem;
             font-weight: 530;
@@ -177,51 +170,29 @@
             margin: 1rem 0 0.5rem 0;
         }
 
-        .job {
-            margin-bottom: 1.5rem;
-            border-bottom: 1px solid #f5e5da;
-            padding-bottom: 1rem;
+        /* Стильные прогресс-бары */
+        .skill-item {
+            margin-bottom: 1rem;
         }
-
-        .job:last-child {
-            border-bottom: none;
-        }
-
-        .job-header {
+        .skill-name {
             display: flex;
             justify-content: space-between;
-            flex-wrap: wrap;
+            font-size: 0.85rem;
+            color: #b97a56;
             margin-bottom: 0.2rem;
         }
-
-        .job-title {
-            font-weight: 620;
-            font-size: 1.02rem;
-            color: #cb8b62;
+        .skill-bar-bg {
+            background: #f7e5da;
+            border-radius: 20px;
+            height: 8px;
+            overflow: hidden;
         }
-
-        .job-date {
-            color: #e8b38a;
-            font-size: 0.75rem;
-            background: #fdf4ec;
-            padding: 0.2rem 0.7rem;
-            border-radius: 40px;
-        }
-
-        .job-company {
-            color: #e8b38a;
-            font-weight: 470;
-            margin-bottom: 0.5rem;
-            font-size: 0.9rem;
-        }
-
-        .job ul {
-            padding-left: 1.2rem;
-        }
-
-        .job li {
-            margin-bottom: 0.35rem;
-            color: #5c534b;
+        .skill-bar-fill {
+            background: linear-gradient(90deg, #e8b38a, #d48a6a);
+            height: 8px;
+            border-radius: 20px;
+            width: 0%;
+            transition: width 0.5s ease;
         }
 
         .skills-grid {
@@ -274,9 +245,6 @@
             margin-bottom: 1.6rem;
             border: 1px solid #f7e2d2;
             text-align: center;
-            animation: softAppear 0.55s ease forwards;
-            opacity: 0;
-            animation-delay: 0.02s;
         }
         .superpower p {
             font-size: 1rem;
@@ -341,7 +309,7 @@
     <div class="superpower">
         <p>✨ <strong>Моя суперсила</strong> ✨<br>
         Пишу быстро, чисто, дружелюбно. Веду 3–5 чатов без потери качества.<br>
-        В любой ситуации остаюсь спокойной и нахожу решение.</p>
+        Если задача сложная — разбираюсь до конца, ищу решения, не сдаюсь.</p>
     </div>
 
     <div class="card">
@@ -351,22 +319,62 @@
         <p>🏆 Стабильно вхожу в топ по показателям благодаря эмпатии и нацеленности на результат.</p>
     </div>
 
+    <!-- БЛОК ТЕХНИЧЕСКИХ НАВЫКОВ (стильные проценты) -->
     <div class="card">
-        <h2>🧪 База знаний тестирования ПО</h2>
-        <p>Понимаю, как работают системы изнутри — это помогает быстро находить причины проблем и объяснять клиентам решение понятным языком.</p>
-        <div class="skills-grid">
-            <span class="skill-tag">Тест-дизайн</span>
-            <span class="skill-tag">Классы эквивалентности</span>
-            <span class="skill-tag">Граничные значения</span>
-            <span class="skill-tag">Тест-кейсы / чек-листы</span>
-            <span class="skill-tag">Баг-репорты</span>
-            <span class="skill-tag">DevTools</span>
-            <span class="skill-tag">API (Postman, GraphQL)</span>
-            <span class="skill-tag">Основы SQL</span>
+        <h2>🧪 Технические навыки</h2>
+        
+        <h3>Тестирование</h3>
+        <div class="skill-item">
+            <div class="skill-name"><span>Функциональное тестирование</span><span>85%</span></div>
+            <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:85%"></div></div>
         </div>
-        <p style="margin-top: 1rem; color: #e8b38a; font-size: 0.9rem;">🎯 Эти знания помогают в техподдержке: быстрее понимаю проблему и точнее отвечаю клиенту.</p>
+        <div class="skill-item">
+            <div class="skill-name"><span>Тестовая документация</span><span>80%</span></div>
+            <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:80%"></div></div>
+        </div>
+        <div class="skill-item">
+            <div class="skill-name"><span>API тестирование</span><span>75%</span></div>
+            <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:75%"></div></div>
+        </div>
+
+        <h3 style="margin-top: 1.2rem;">Инструменты</h3>
+        <div class="skill-item">
+            <div class="skill-name"><span>Postman</span><span>80%</span></div>
+            <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:80%"></div></div>
+        </div>
+        <div class="skill-item">
+            <div class="skill-name"><span>DevTools</span><span>85%</span></div>
+            <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:85%"></div></div>
+        </div>
+        <div class="skill-item">
+            <div class="skill-name"><span>SQL (JOIN, CRUD)</span><span>75%</span></div>
+            <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:75%"></div></div>
+        </div>
+        <div class="skill-item">
+            <div class="skill-name"><span>Charles Proxy</span><span>70%</span></div>
+            <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:70%"></div></div>
+        </div>
     </div>
 
+    <!-- БЛОК SOFT SKILLS (аккуратные теги) -->
+    <div class="card">
+        <h2>💎 Soft Skills</h2>
+        <div class="skills-grid">
+            <span class="skill-tag">Внимательность</span>
+            <span class="skill-tag">Аналитическое мышление</span>
+            <span class="skill-tag">Коммуникабельность</span>
+            <span class="skill-tag">Тайм-менеджмент</span>
+            <span class="skill-tag">Работа в команде</span>
+            <span class="skill-tag">Критическое мышление</span>
+            <span class="skill-tag">Обучаемость</span>
+            <span class="skill-tag">Ответственность</span>
+            <span class="skill-tag">Упорство</span>
+            <span class="skill-tag">Усидчивость</span>
+            <span class="skill-tag">Не сдаюсь при трудностях</span>
+        </div>
+    </div>
+
+    <!-- ОПЫТ РАБОТЫ (сокращённо, но ёмко) -->
     <div class="card">
         <h2>📋 Опыт работы</h2>
         <div class="job">
@@ -376,10 +384,8 @@
             </div>
             <div class="job-company">Академия KATA</div>
             <ul>
-                <li>Консультирование в чатах и по телефону</li>
-                <li>Регистрация на платформах, работа в Диадоке, отчётность по оплатам</li>
+                <li>Консультирование в чатах, регистрация на платформах, отчётность</li>
                 <li>Вошла в топ-менеджеров на испытательном сроке</li>
-                <li>Одновременное ведение нескольких диалогов, быстрая переписка</li>
             </ul>
         </div>
         <div class="job">
@@ -389,54 +395,25 @@
             </div>
             <div class="job-company">Университет Urban</div>
             <ul>
-                <li>Консультирование в чатах и по телефону, фильтрация лидов</li>
-                <li>Показатель доходимости 70–95% при среднем 65%</li>
-                <li>Обучение новичков: работа с возражениями, скрипты чатов</li>
+                <li>Консультирование в чатах, доходимость 70–95%</li>
+                <li>Обучение новичков, работа с возражениями</li>
             </ul>
         </div>
         <div class="job">
             <div class="job-header">
-                <span class="job-title">Менеджер 1-я и 2-я линия поддержки</span>
+                <span class="job-title">Менеджер 1-я и 2-я линия</span>
                 <span class="job-date">2023 — 2024</span>
             </div>
             <div class="job-company">Академия UKIDS</div>
             <ul>
-                <li>Онбординг клиентов: регистрация, подключение к урокам, решение технических вопросов</li>
-                <li>Внедрение скриптов активного слушания → повышение качества коммуникации</li>
-                <li>Выход на 100% плана в испытательный срок, топ-менеджер 3 месяца</li>
-                <li>Отчётность в Google Таблицах, ведение базы клиентов</li>
+                <li>Онбординг, техподдержка, отчётность в Google Таблицах</li>
+                <li>Топ-менеджер 3 месяца подряд</li>
             </ul>
         </div>
     </div>
 
-    <div class="card">
-        <h2>Ключевые навыки</h2>
-        <h3>💬 Работа в чатах</h3>
-        <div class="skills-grid">
-            <span class="skill-tag">Скорость печати 250–300 зн/мин</span>
-            <span class="skill-tag">Точность 98%</span>
-            <span class="skill-tag">Ведение 3–5 чатов одновременно</span>
-            <span class="skill-tag">Грамотная переписка</span>
-        </div>
-        <h3>🛠️ Техподдержка</h3>
-        <div class="skills-grid">
-            <span class="skill-tag">1-я и 2-я линия</span>
-            <span class="skill-tag">Онбординг</span>
-            <span class="skill-tag">Решение тех. вопросов</span>
-            <span class="skill-tag">Диагностика</span>
-        </div>
-        <h3>⚙️ Инструменты</h3>
-        <div class="skills-grid">
-            <span class="skill-tag">Битрикс24 (3+ года)</span>
-            <span class="skill-tag">Google Таблицы</span>
-            <span class="skill-tag">Telegram, WhatsApp, Skype</span>
-            <span class="skill-tag">Диадок</span>
-            <span class="skill-tag">Postman, GraphQL</span>
-        </div>
-    </div>
-
     <div class="footer">
-        <p>🌸 Анжелика Адзесси — чат-менеджер | техподдержка | тестирование ПО | быстрая, грамотная, многозадачная</p>
+        <p>🌸 Анжелика Адзесси — чат-менеджер | техподдержка | тестирование ПО</p>
     </div>
 </div>
 </body>
